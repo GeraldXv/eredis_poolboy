@@ -27,7 +27,7 @@ init([]) ->
     RedisOptions = [{host, "127.0.0.1"}, {port, "6379"}, {database, "user_db"},{password,"abc"}],
     ChildSpecs = [
         %% Redis pools
-        mysql_poolboy:child_spec(pool1, PoolOptions, RedisOptions),
+        eredis_poolboy:child_spec(pool1, PoolOptions, RedisOptions),
         %% other workers...
         {some_other_worker, {some_other_worker, start_link, []},
          permanent, 10, worker, [some_other_worker]}
@@ -92,7 +92,7 @@ Use this as a dependency
 Using *erlang.mk*, put this in your `Makefile`:
 
 ```Erlang
-DEPS = mysql_poolboy
+DEPS = eredis_poolboy
 dep_eredis_poolboy = git https://github.com/vzzy/eredis_poolboy 1.0.0
 ```
 
