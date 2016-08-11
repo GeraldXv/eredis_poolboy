@@ -1,6 +1,8 @@
 eredis + Poolboy
 ===================
 
+=bai=
+
 Status: Beta.
 
 **eredis + Poolboy** provides connection pooling for
@@ -91,14 +93,14 @@ Using *erlang.mk*, put this in your `Makefile`:
 
 ```Erlang
 DEPS = mysql_poolboy
-dep_eredis_poolboy = git https://github.com/eredis/eredis-poolboy 0.1.6
+dep_eredis_poolboy = git https://github.com/vzzy/eredis_poolboy 1.0.0
 ```
 
 Using *rebar*, put this in your `rebar.config`:
 
 ```Erlang
 {deps, [
-    {eredis_poolboy, ".*", {git, "https://github.com/eredis/eredis-poolboy",{tag, "0.1.6"}}}
+    {eredis_poolboy, ".*", {git, "https://github.com/vzzy/eredis_poolboy",{tag, "1.0.0"}}}
 ]}.
 ```
 
