@@ -8,9 +8,6 @@
 %% Supervisor callbacks
 -export([init/1]).
 
-%% Helper macro for declaring children of supervisor
--define(CHILD(I, Type), {I, {I, start_link, []}, permanent, 5000, Type, [I]}).
-
 %% ===================================================================
 %% API functions
 %% ===================================================================
@@ -26,8 +23,8 @@ init([]) ->
 	Pools = application:get_all_env(eredis_poolboy),
     Pools1 = proplists:delete(included_applications, Pools),
     PoolSpec = lists:map(
-        fun ({PoolName, {PoolArgs, MysqlArgs}}) ->
-            eredis_poolboy:child_spec(PoolName, PoolArgs, MysqlArgs)
+        fun ({PoolName, {PoolArgs, RedisArgs}}) ->
+            eredis_poolboy:child_spec(PoolName, PoolArgs, RedisArgs)
         end,
         Pools1
     ),

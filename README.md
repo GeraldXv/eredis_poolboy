@@ -24,7 +24,7 @@ in your own supervisor.
 %% my own supervisor
 init([]) ->
     PoolOptions  = [{size, 10}, {max_overflow, 20}],
-    RedisOptions = [{host, "127.0.0.1"}, {port, "6379"}, {database, "user_db"},{password,"abc"}],
+    RedisOptions = [{host, "127.0.0.1"}, {port, 6379}, {database, 0},{password,"abc"}],
     ChildSpecs = [
         %% Redis pools
         eredis_poolboy:child_spec(pool1, PoolOptions, RedisOptions),
@@ -57,7 +57,7 @@ is a file with the following contents:
 {eredis_poolboy, [
     {pool1, {
       [{size, 10}, {max_overflow, 20}],
-      [{host, "127.0.0.1"}, {port, "6379"}, {database, "user_db"},{password,"abc"}]
+      [{host, "127.0.0.1"}, {port, 6379}, {database,0},{password,"abc"}]
     }}
 ]}
 ```
