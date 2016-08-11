@@ -1,0 +1,12 @@
+{application, eredis_poolboy,
+ [
+  {description, "eredis + Poolboy"},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  eredis,
+                  poolboy
+                 ]},
+  {mod, { eredis_poolboy_app, []}},
+  {env, []}
+ ]}.
